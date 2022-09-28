@@ -4,8 +4,9 @@
   "main": "./src/app.ts",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node ./src/app.ts",
+    "start": "node ./src/app.ts",
     "dev": "nodemon ./src/app.ts",
+    "postinstall": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
