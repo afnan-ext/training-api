@@ -46,6 +46,6 @@ app.use((err: any, req: any, res: any, next: any) => {
 });
 
 // app.listen(3000, () => console.log("Server stated at port 3000"));
-app.listen(process.env.PORT || 5000, function(){
+app.listen(process.env.PORT || 1060, function(){
   console.log("Express server listening on port %d in %s mode", app.settings.env);
 });

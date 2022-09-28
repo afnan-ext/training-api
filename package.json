@@ -4,9 +4,10 @@
   "main": "./src/app.ts",
   "license": "MIT",
   "scripts": {
-    "start": "node ./src/app.ts",
+    "start": "npm run build && node ./build/app.js",
     "dev": "nodemon ./src/app.ts",
     "postinstall": "tsc",
+    "build":"tsc ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -26,6 +27,7 @@
     "mongoose": "^6.6.1"
   },
   "compilerOptions": {
-    "module": "CommonJS"
+    "target": "esnext",
+    "module": "commonjs"
   }
 }
