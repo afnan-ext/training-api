@@ -13,6 +13,7 @@ import cors from 'cors'
 // import categoryRoute from './routes/category.route.js';
 
 const app = express();
+app.use(cors());
 
 // configure .env file
 dotenv.config();
@@ -60,7 +61,6 @@ const corsOpts = {
   ],
 };
 
-app.use(cors());
 
 // error handler
 app.use((err: any, req: any, res: any, next: any) => {
