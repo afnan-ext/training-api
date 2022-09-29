@@ -60,7 +60,7 @@ const corsOpts = {
   ],
 };
 
-app.use(cors(corsOpts));
+app.use(cors());
 
 // error handler
 app.use((err: any, req: any, res: any, next: any) => {
