@@ -37,6 +37,16 @@ app.use((req, res) => {
   res.status(404).json({ message: "Page not found!" });
 });
 
+//disable cors
+app.get('/', function(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  // res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+
+  res.send('cors problem fixed:)');
+});
+
 // error handler
 app.use((err: any, req: any, res: any, next: any) => {
   res.locals.message = err.message;
