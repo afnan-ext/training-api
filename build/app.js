@@ -20,6 +20,12 @@ app.use("/user", users_route_1.default);
 app.use((req, res) => {
     res.status(404).json({ message: "Page not found!" });
 });
+app.get('/', function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.send('cors problem fixed:)');
+});
 app.use((err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};

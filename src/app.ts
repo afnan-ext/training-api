@@ -6,6 +6,7 @@ const path = require("path");
 // import { verifyToken } from './utils/verifyToken.js';
 import dotenv from "dotenv";
 import authRoute from "./routes/users.route";
+import cors from 'cors'
 
 // import { getOtp, verifyOtp } from './controllers/userController.js';
 
@@ -38,14 +39,28 @@ app.use((req, res) => {
 });
 
 //disable cors
-app.get('/', function(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-  // res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+// app.get('/', function(req, res) {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+//   // res.setHeader('Access-Control-Allow-Credentials', true); // If needed
 
-  res.send('cors problem fixed:)');
-});
+//   res.send('cors problem fixed:)');
+// });
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
 
 // error handler
 app.use((err: any, req: any, res: any, next: any) => {
